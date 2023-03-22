@@ -1,14 +1,12 @@
 import React from 'react';
 import ToDo from './ToDo';
  
- 
-const ToDoList = ({toDoList}) => {
-   
+const ToDoList = ({toDoList, onToggle}) => {
    return (
        <div className='list'>
            {toDoList.map(todo => {
                return (
-                   <ToDo todo={todo} />
+                   <ToDo key={todo.id} todo={todo} onToggle={onToggle} />
                )
            })}
        </div>
@@ -16,6 +14,3 @@ const ToDoList = ({toDoList}) => {
 };
  
 export default ToDoList;
-
-
-

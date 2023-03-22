@@ -1,15 +1,15 @@
 import React from "react";
 
-const toDoForm = () => {
-    return (
-     <form className="form">
-      <label placeholder="enter your to-do task here...">
+const ToDoForm = ({ handleSubmit }) => {
+  return (
+    <form className="form" onSubmit={handleSubmit}>
+      <label>
         Task:
-      <input type="text" name="name" />
+        <input type="text" name="name" placeholder="enter your to-do task here..." />
       </label>
       <input type="submit" value="Submit" />
-     </form>
-    );
+    </form>
+  );
 };
 
-export default Form;
+export default ToDoForm;

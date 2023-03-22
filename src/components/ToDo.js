@@ -1,9 +1,16 @@
 import React from 'react';
  
-const ToDo = ({todo}) => {
+const ToDo = ({todo, onToggle}) => {
    return (
        <div className='to-do'>
-           {todo.task}
+           <input
+             type="checkbox"
+             checked={todo.completed}
+             onChange={() => onToggle(todo.id)}
+           />
+           <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+             {todo.task}
+           </span>
        </div>
    );
 };
