@@ -1,38 +1,88 @@
-.App {
-  text-align: center;
+/* Set background image and animated gradient */
+body {
+  /* background-image: url("/public/"); */
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: gradient 10s ease infinite;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes gradient {
+  0% {
+    background: linear-gradient(to right, #ff00ff, #00ffff);
+  }
+  50% {
+    background: linear-gradient(to right, #00ffff, #ff00ff);
+  }
+  100% {
+    background: linear-gradient(to right, #ff00ff, #00ffff);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* Style the header */
+.header {
+  font-size: 3em;
   color: white;
+  text-shadow: 2px 2px 2px black;
 }
 
-.App-link {
-  color: #61dafb;
+/* Style the to-do list */
+.list {
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Style the checkbox */
+input[type="checkbox"] {
+  appearance: none;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #ff00ff;
+}
+
+/* Style the button */
+button {
+  border: none;
+  border-radius: 25px;
+  padding: 15px 25px;
+  font-size: 1.2em;
+  color: white;
+  background-color: #00ffff;
+  text-shadow: 2px 2px 2px black;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  filter: blur(10px);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+button:hover::before {
+  opacity: 1;
+}
+
+button:active::before {
+  transform: scale(2);
+  opacity: 1;
 }
